@@ -3,18 +3,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
-
+let loadMoreBtn;
 let lightbox = new SimpleLightbox('.gallery a');
-
-// Динамічне створення кнопки "Load more"
-const loadMoreBtn = document.createElement('button');
-loadMoreBtn.textContent = 'Load more';
-loadMoreBtn.classList.add('load-more', 'hidden');
-galleryEl.insertAdjacentElement('afterend', loadMoreBtn);
-
-export function getLoadMoreBtn() {
-  return loadMoreBtn;
-}
 
 export function createGallery(images) {
   const markup = images
@@ -34,7 +24,6 @@ export function createGallery(images) {
   `
     )
     .join('');
-
   galleryEl.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
@@ -53,10 +42,21 @@ export function hideLoader() {
   loaderEl.textContent = '';
 }
 
+export function initLoadMoreButton() {
+  loadMoreBtn = document.createElement('button');
+  loadMoreBtn.textContent = 'Load more';
+  loadMoreBtn.classList.add('load-more', 'hidden');
+  galleryEl.insertAdjacentElement('afterend', loadMoreBtn);
+}
+
+export function getLoadMoreButton() {
+  return loadMoreBtn;
+}
+
 export function showLoadMoreButton() {
-  loadMoreBtn.classList.remove('hidden');
+  if (loadMoreBtn) loadMoreBtn.classList.remove('hidden');
 }
 
 export function hideLoadMoreButton() {
-  loadMoreBtn.classList.add('hidden');
+  if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
 }
