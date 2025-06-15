@@ -1,0 +1,107 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+
+form {
+  display: flex;
+  gap: 8px;
+  max-width: 371px;
+  align-items: center;
+}
+
+form input {
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  padding-left: 16px;
+  border: 1px solid gray;
+  transition: border-color .25s cubic-bezier(.4, 0, .2, 1);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+form input:active {
+  background-color: #4e75ff;
+}
+
+form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 91px;
+  height: 40px;
+  border-radius: 8px;
+  color: #fff;
+  transition: background-color .25s cubic-bezier(.4, 0, .2, 1);
+  background-color: #4e75ff;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+form button:hover {
+  background-color: #6c8cff;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #808080;
+}
+
+.gallery img {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  padding: 4px 25px 4px 20px;
+  background-color: #fff;
+  max-width: 360px;
+  max-height: 240px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
