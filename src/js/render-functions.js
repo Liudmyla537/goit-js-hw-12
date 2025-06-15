@@ -44,11 +44,13 @@ export function clearGallery() {
 }
 
 export function showLoader() {
+  loaderEl.textContent = 'Loading images, please wait...';
   loaderEl.classList.remove('hidden');
 }
 
 export function hideLoader() {
   loaderEl.classList.add('hidden');
+  loaderEl.textContent = '';
 }
 
 export function showLoadMoreButton() {
