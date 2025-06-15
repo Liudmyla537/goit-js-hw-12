@@ -6,23 +6,29 @@ const loaderEl = document.querySelector('.loader');
 
 let lightbox = new SimpleLightbox('.gallery a');
 
+// Динамічне створення кнопки "Load more"
+const loadMoreBtn = document.createElement('button');
+loadMoreBtn.textContent = 'Load more';
+loadMoreBtn.classList.add('load-more', 'hidden');
+galleryEl.insertAdjacentElement('afterend', loadMoreBtn);
+
+export function getLoadMoreBtn() {
+  return loadMoreBtn;
+}
+
 export function createGallery(images) {
   const markup = images
     .map(
       img => `
     <li class="gallery-item">
       <a href="${img.largeImageURL}">
-        <img src="${img.webformatURL}" alt="${img.tags}" />
+        <img src="${img.webformatURL}" alt="${img.tags}" loading="lazy" />
       </a>
       <div class="info">
-        <p><b>Likes</b>
-        ${img.likes}</p>
-        <p><b>Views</b>
-        ${img.views}</p>
-        <p><b>Comments</b>
-        ${img.comments}</p>
-        <p><b>Downloads</b>
-        ${img.downloads}</p>
+        <p><b>Likes</b> ${img.likes}</p>
+        <p><b>Views</b> ${img.views}</p>
+        <p><b>Comments</b> ${img.comments}</p>
+        <p><b>Downloads</b> ${img.downloads}</p>
       </div>
     </li>
   `
@@ -46,11 +52,9 @@ export function hideLoader() {
 }
 
 export function showLoadMoreButton() {
-  const btn = document.querySelector('.load-more');
-  if (btn) btn.classList.remove('hidden');
+  loadMoreBtn.classList.remove('hidden');
 }
 
 export function hideLoadMoreButton() {
-  const btn = document.querySelector('.load-more');
-  if (btn) btn.classList.add('hidden');
+  loadMoreBtn.classList.add('hidden');
 }

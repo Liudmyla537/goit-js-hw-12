@@ -125,3 +125,7 @@ form button:hover {
 .load-more:hover {
   background-color: #6c8cff;
 }
+
+.loader.hidden {
+  display: none;
+}
