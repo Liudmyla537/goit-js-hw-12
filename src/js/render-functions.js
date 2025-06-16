@@ -5,10 +5,7 @@ const galleryEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
 const loadMoreBtn = document.querySelector('.load-more');
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
+const lightbox = new SimpleLightbox('.gallery a');
 
 export function createGallery(images) {
   const markup = images
@@ -16,7 +13,7 @@ export function createGallery(images) {
       img => `
     <li class="gallery-item">
       <a href="${img.largeImageURL}">
-        <img src="${img.webformatURL}" alt="${img.tags}" loading="lazy" />
+        <img src="${img.webformatURL}" alt="${img.tags}" />
       </a>
       <div class="info">
         <p><b>Likes</b> ${img.likes}</p>
@@ -47,6 +44,8 @@ export function hideLoader() {
 
 export function showLoadMoreButton() {
   loadMoreBtn.classList.remove('hidden');
+  loadMoreBtn.disabled = false;
+  loadMoreBtn.textContent = 'Load more';
 }
 
 export function hideLoadMoreButton() {
