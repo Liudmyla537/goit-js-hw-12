@@ -66,9 +66,7 @@ form button:hover {
 
 
 
-.hidden {
-  display: none;
-}
+
 
 @keyframes spin {
   to {
@@ -128,7 +126,6 @@ form button:hover {
 
 
 .load-more {
-  margin-top: 32px;
   border-radius: 8px;
   padding: 8px 16px;
   width: 125px;
@@ -150,25 +147,25 @@ form button:hover {
   background-color: #6c8cff;
 }
 
-/* .loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #ccc;
-  border-top-color: #4e75ff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-right: 10px;
-} */
-
-.loading-text {
-  color: #4e75ff;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-}
 
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.loader {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hidden {
+  display: none;
 }
